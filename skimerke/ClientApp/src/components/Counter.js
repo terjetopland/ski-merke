@@ -14,7 +14,7 @@ export class Counter extends Component {
       currentCount: this.state.currentCount + 1
     });
   }
-
+  
   render() {
     return (
       <div>
@@ -29,3 +29,4 @@ export class Counter extends Component {
     );
   }
 }
+
