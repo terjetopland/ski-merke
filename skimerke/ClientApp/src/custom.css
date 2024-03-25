@@ -17,3 +17,7 @@ code {
   border-color: #1861ac;
 }
 
+.landing-page-background {
+    background: top/100% url('./images/landingPage.png') no-repeat, linear-gradient(90deg, #DDEBFB 100%, #DDEBFB 0%);
+}
+
