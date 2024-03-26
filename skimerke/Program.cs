@@ -33,6 +33,19 @@ builder.Services.AddRazorPages();
 
 var app = builder.Build();
 
+// Initialize the database
+using (var scope = app.Services.CreateScope())
+{
+    var services = scope.ServiceProvider;
+    var context = services.GetRequiredService<ApplicationDbContext>();
+
+    // Ensure the database is created and migrated
+    context.Database.Migrate();
+
+    // Initialize the database with initial data
+    ApplicationDbInitializer.Initialize(context);
+}
+
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
