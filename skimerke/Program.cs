@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Identity.UI;
 using Microsoft.EntityFrameworkCore;
 using skimerke.Data;
 using skimerke.Models;
+using skimerke.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -25,7 +26,18 @@ builder.Services.AddAuthentication()
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();
 
+// Service configuration
+builder.Services.AddScoped<IRequirementService, RequirementService>();
+
 var app = builder.Build();
+
+// call the database initializer
+using (var scope = app.Services.CreateScope())
+{
+    var services = scope.ServiceProvider;
+    var db = services.GetRequiredService<ApplicationDbContext>();
+    ApplicationDbContextInitializer.Initialize(services);
+}
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
@@ -54,4 +66,3 @@ app.MapRazorPages();
 app.MapFallbackToFile("index.html");
 
 app.Run();
-
