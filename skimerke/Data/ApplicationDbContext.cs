@@ -6,12 +6,10 @@ using skimerke.Models;
 
 namespace skimerke.Data;
 
-public class ApplicationDbContext : ApiAuthorizationDbContext<ApplicationUser>
+public class ApplicationDbContext(DbContextOptions options, IOptions<OperationalStoreOptions> operationalStoreOptions)
+    : ApiAuthorizationDbContext<ApplicationUser>(options, operationalStoreOptions)
 {
-    public ApplicationDbContext(DbContextOptions options, IOptions<OperationalStoreOptions> operationalStoreOptions)
-        : base(options, operationalStoreOptions)
-    {
-
-    }
-}
+    // add entities
+    public DbSet<ExampleEntity> ExampleEntities => Set<ExampleEntity>();
+};
 
