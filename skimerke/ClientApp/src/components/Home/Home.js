@@ -6,7 +6,7 @@ export class Home extends Component {
   render() {
     return (
         
-      <div>
+      <div className="landing-page-image landing-page-background">
         <h1>Hello, world!</h1>
         <p>Welcome to your nnew single-page application, built with:</p>
         <ul>
