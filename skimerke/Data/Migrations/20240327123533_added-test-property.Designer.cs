@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using skimerke.Data;
 
@@ -10,9 +11,11 @@ using skimerke.Data;
 namespace skimerke.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240327123533_added-test-property")]
+    partial class addedtestproperty
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "8.0.3");
@@ -360,6 +363,10 @@ namespace skimerke.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
+                    b.Property<string>("Age")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
                     b.Property<int>("Distance")
                         .HasColumnType("INTEGER");
 
@@ -368,14 +375,11 @@ namespace skimerke.Data.Migrations
                         .HasMaxLength(15)
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("Lower_age")
-                        .HasColumnType("INTEGER");
-
                     b.Property<int>("Minutes")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("Upper_age")
-                        .HasColumnType("INTEGER");
+                    b.Property<string>("test")
+                        .HasColumnType("TEXT");
 
                     b.HasKey("Id");
 
