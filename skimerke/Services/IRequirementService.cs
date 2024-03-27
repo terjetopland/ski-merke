@@ -4,5 +4,5 @@ namespace skimerke.Services;
 
 public interface IRequirementService
 {
-    IEnumerable<Requirement> GetAll();
+    Task<IEnumerable<Requirement>> GetAll();
 }

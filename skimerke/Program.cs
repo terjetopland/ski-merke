@@ -33,9 +33,9 @@ var app = builder.Build();
 
 // call the database initializer
 using (var scope = app.Services.CreateScope())
-{
+{   
     var services = scope.ServiceProvider;
-    var db = services.GetRequiredService<ApplicationDbContext>();
+    //var db = services.GetRequiredService<ApplicationDbContext>();
     ApplicationDbContextInitializer.Initialize(services);
 }
 

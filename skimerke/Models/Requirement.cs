@@ -12,6 +12,7 @@ namespace skimerke.Models
         [StringLength(15)]
         public string Gender { get; set; }
         public int Distance { get; set; }
-        public string Age { get; set; }
+        public int Lower_age { get; set; }
+        public int Upper_age { get; set; }
     }
 }

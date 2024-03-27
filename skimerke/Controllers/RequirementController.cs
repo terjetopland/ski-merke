@@ -20,10 +20,10 @@ namespace skimerke.Controllers
         }
         
         [HttpGet]
-        public IEnumerable<Requirement> Get()
+        public async Task<IEnumerable<Requirement>> Get()
         {
             // Call the repository method to retrieve requirements
-            var data = _service.GetAll();
+            var data = await _service.GetAll();
             return data;
         }
     }

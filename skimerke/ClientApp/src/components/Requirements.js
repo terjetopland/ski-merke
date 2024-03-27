@@ -9,7 +9,7 @@ function Requirements() {
 
     async function fetchRequirements() {
         try {
-            const response = await fetch('/Requirement'); // Adjust the endpoint if needed
+            const response = await fetch('/requirement'); // Adjust the endpoint if needed
             const data = await response.json();
             setRequirements(data); // Update state with fetched data
         } catch (error) {
@@ -23,10 +23,11 @@ function Requirements() {
             <ul>
                 {requirements.map(requirement => (
                     <li key={requirement.id}>
-                        <p>Time Requirements: {requirement.time}</p>
+                        <p>Time Requirements: {requirement.minutes}</p>
                         <p>Gender: {requirement.gender}</p>
                         <p>Distance: {requirement.distance} km</p>
-                        <p>Age: {requirement.age}</p>
+                        <p>Age: {requirement.lower_age}</p>
+                        <p>Age: {requirement.upper_age}</p>
                     </li>
                 ))}
             </ul>

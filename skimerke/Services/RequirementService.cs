@@ -1,3 +1,4 @@
+using Microsoft.EntityFrameworkCore;
 using skimerke.Data;
 using skimerke.Models;
 namespace skimerke.Services;
@@ -13,9 +14,9 @@ public class RequirementService : IRequirementService
         _context = context; 
     }
     
-    public IEnumerable<Requirement> GetAll()
+    public async Task<IEnumerable<Requirement>> GetAll()
     {
-        var result = _context.Requirements.ToList();
+        var result = await _context.Requirements.ToListAsync();
         return result;
     }
 }
