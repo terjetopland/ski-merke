@@ -10,8 +10,7 @@ public interface IMinService
     Task<ExampleEntity> AddExampleEntity(ExampleEntity exampleEntity);
 }
 
-public sealed class MinService(
-    ApplicationDbContext applicationDbContext) : IMinService
+public sealed class MinService(ApplicationDbContext applicationDbContext) : IMinService
 {
     // tjenestene leverer det andre deler av applikasjonen trenger
     public string GetMe()
