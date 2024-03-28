@@ -24,6 +24,10 @@ Bin/
 obj/
 Obj/
 
+app.db
+app.db-shm
+app.db-wal
+
 # Visual Studio 2015 cache/options directory
 .vs/
 /wwwroot/dist/
