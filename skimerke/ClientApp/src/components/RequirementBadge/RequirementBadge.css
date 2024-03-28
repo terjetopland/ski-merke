@@ -27,6 +27,15 @@
     justify-content: center; 
     align-items: center; 
 }
+.fsquare {
+    height: 57px;
+    width: 70px;
+    background: #ffbc42;
+    border-radius: 0.625rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 .rectangle-5-6 {
     align-content: center;

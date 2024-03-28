@@ -16,16 +16,13 @@ export default function Requirements() {
         } catch (error) {
             console.error('Error fetching data:', error);
         }
-    }   
-    const minutes = requirements.map(req => req.minutes)
-    
-    console.log(minutes);
+    }
     
     return (
         <div>
             <ul>
                 {requirements.map(requirement => (
-                        <RequirementBadge>{requirement.lower_age} til {requirement.upper_age} år - {requirement.distance} km på {requirement.minutes} min</RequirementBadge>
+                        <RequirementBadge gender={requirement.gender}>{requirement.lower_age} til {requirement.upper_age} år - {requirement.distance} km på {requirement.minutes} min</RequirementBadge>
                 ))}
             </ul>
         </div>
