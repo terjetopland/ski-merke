@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
+import RequirementBadge  from "./RequirementBadge/RequirementBadge.js";
 
-function Requirements() {
+export default function Requirements() {
     const [requirements, setRequirements] = useState([]);
 
     useEffect(() => {
@@ -15,20 +16,16 @@ function Requirements() {
         } catch (error) {
             console.error('Error fetching data:', error);
         }
-    }
-
+    }   
+    const minutes = requirements.map(req => req.minutes)
+    
+    console.log(minutes);
+    
     return (
         <div>
-            <h2>Requirement List</h2>
             <ul>
                 {requirements.map(requirement => (
-                    <li key={requirement.id}>
-                        <p>Time Requirements: {requirement.minutes}</p>
-                        <p>Gender: {requirement.gender}</p>
-                        <p>Distance: {requirement.distance} km</p>
-                        <p>Age: {requirement.lower_age}</p>
-                        <p>Age: {requirement.upper_age}</p>
-                    </li>
+                        <RequirementBadge>{requirement.lower_age} til {requirement.upper_age} år - {requirement.distance} km på {requirement.minutes} min</RequirementBadge>
                 ))}
             </ul>
         </div>
@@ -37,4 +34,4 @@ function Requirements() {
 
 
 
-export default Requirements;
+//export default Requirements;
