@@ -16,7 +16,7 @@ const CardContainer = ({ children }) => {
 
 const CardItem = ({ children }) => {
     return (
-        <div className="card-item">
+        <div className="card-item card-text">
             {children}
         </div>
     );

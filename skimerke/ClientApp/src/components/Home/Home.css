@@ -1,3 +1,41 @@
 .landing-page-background {
-    background: top/100% url('../../images/landingPage.png') no-repeat, linear-gradient(90deg, #DDEBFB 100%, #DDEBFB 0%);
+    background:  linear-gradient(90deg, #DDEBFB 100%, #DDEBFB 0%);
+    padding-bottom: 20px;
+    margin: 0 auto;
+}
+
+.top-container {
+    position: relative;
+    text-align: center;
+    color: white;
+}
+.top {
+    width: 100%;
+    height: auto;
+}
+
+.top > img {
+    width: 100%;
+}
+
+.top > .centered {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.small-size-header-1 {}
+
+@media screen and (max-width: 519px){
+    .top > .centered {
+        top: 17%;
+    }
+    .top > .centered > .small-size-header-1 {
+        font-size: 6vw;
+        font-weight: bolder;
+    }
+    .top > .centered > .small-size-header-2 {
+        display: none;
+    }
 }
