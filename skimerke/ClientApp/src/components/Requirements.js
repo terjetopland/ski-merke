@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import RequirementBadge  from "./RequirementBadge/RequirementBadge.js";
+import React, {useState, useEffect} from 'react';
+import RequirementBadge from "./RequirementBadge/RequirementBadge.js";
+import {CardContainer, CardItem} from "./Card/Card";
 
 export default function Requirements() {
     const [requirements, setRequirements] = useState([]);
@@ -17,18 +18,32 @@ export default function Requirements() {
             console.error('Error fetching data:', error);
         }
     }
+
+    const male = requirements.filter(req => req.gender.toLowerCase() === "male");
+    const female = requirements.filter(req => req.gender.toLowerCase() === "female");
     
+
     return (
-        <div>
-            <ul>
-                {requirements.map(requirement => (
-                        <RequirementBadge gender={requirement.gender}>{requirement.lower_age} til {requirement.upper_age} år - {requirement.distance} km på {requirement.minutes} min</RequirementBadge>
+        <CardContainer>
+            <CardItem>
+                {male.map((requirement) => (
+                    <RequirementBadge key={requirement.id} gender={requirement.gender}>
+                        {requirement.lowe_age} til {requirement.upper_age} år
+                        - {requirement.distance} km på {requirement.minutes} min
+                    </RequirementBadge>
                 ))}
-            </ul>
-        </div>
+            </CardItem>
+            <CardItem>
+                {female.map((requirement) => (
+                    <RequirementBadge key={requirement.id} qgender={requirement.gender}>
+                        {requirement.lower_age} til {requirement.upper_age} år
+                        - {requirement.distance} km på {requirement.minutes} min
+                    </RequirementBadge>
+                ))}
+            </CardItem>
+        </CardContainer>
     );
 }
-
 
 
 //export default Requirements;
