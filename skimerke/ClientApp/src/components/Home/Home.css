@@ -1,7 +1,9 @@
 .landing-page-background {
     background:  linear-gradient(90deg, #DDEBFB 100%, #DDEBFB 0%);
     padding-bottom: 20px;
-    margin: 0 auto;
+    /*margin-left: -120px;
+    margin-right: -120px;
+     */
 }
 
 .top-container {
@@ -16,6 +18,8 @@
 
 .top > img {
     width: 100%;
+    height: auto;
+    align-content: center   ;
 }
 
 .top > .centered {
