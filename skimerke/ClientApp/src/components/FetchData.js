@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import authService from './api-authorization/AuthorizeService'
+import {LoadingAnimation} from "./LoadingAnimation/LoadingAnimation";
 
 export class FetchData extends Component {
   static displayName = FetchData.name;
@@ -15,7 +16,9 @@ export class FetchData extends Component {
 
   static renderForecastsTable(forecasts) {
     return (
+        
       <table className="table table-striped" aria-labelledby="tableLabel">
+        <LoadingAnimation/>
         <thead>
           <tr>
             <th>Date</th>

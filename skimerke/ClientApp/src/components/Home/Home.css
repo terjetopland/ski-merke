@@ -31,6 +31,21 @@
 
 .small-size-header-1 {}
 
+.text-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.text-container div {
+    padding: 0 0 26px 0;
+}
+
+.text-container div:last-of-type {
+    padding: 0;
+}
+
+
 @media screen and (max-width: 519px){
     .top > .centered {
         top: 17%;
