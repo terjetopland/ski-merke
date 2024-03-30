@@ -1,12 +1,13 @@
 import React, {Component} from 'react';
 import {CardStack, CardContainer, CardImage, CardItem} from "../Card/Card";
-import silverPlakett from "../../images/silverPlakett.png"
-import landingPage from "../../images/landingPage.png"
-import upcomingSkiRace from "../../images/kommende_skirenn.png"
+import silverPlakett from "../../images/silverPlakett.png";
+import landingPage from "../../images/landingPage.png";
+import upcomingSkiRace from "../../images/kommende_skirenn.png";
+import oynaheiaMap from "../../images/oynaheia_kart.png";
+import myHistory from "../../images/min_historie.png";
 import "../../custom.css"
 import "./Home.css"
 import {AnimationLandingPage} from "../AnimationLandingPage/AnimationLandingPage";
-
 
 export class Home extends Component {
     static displayName = Home.name;
@@ -56,7 +57,14 @@ export class Home extends Component {
                                     for Norsk Skimerke godkjennes som utholdenhetsprøve for Norges Idrettsforbunds
                                     Idrettsmerke.
                                 </div>
+                                <div className="fs-6 fw-light font-f-lato">
+                                    Les mer<span> </span>
+                                    <a href="https://www.skiforbundet.no/globalassets/04-gren---medier/langrenn/regler-og-retningslinjer/reglement-nsfs-ferdighetsmerker2.pdf">
+                                        her
+                                    </a>
+                                </div>
                             </div>
+                            
                         </CardItem>
                         <CardItem>
                             <CardImage src={silverPlakett} alt="Sølvplakett"/>
@@ -64,7 +72,7 @@ export class Home extends Component {
                     </CardContainer>
                     <CardContainer>
                         <CardItem>
-                            <CardImage  src={upcomingSkiRace} alt="Table of upcoming ski races"/>
+                            <CardImage src={upcomingSkiRace} alt="Table of upcoming ski races"/>
                         </CardItem>
                         <CardItem>
                             <div className="text-container">
@@ -77,8 +85,42 @@ export class Home extends Component {
                             </div>
                         </CardItem>
                     </CardContainer>
+                    <CardContainer>
+                        <CardItem>
+                            <div className="text-container">
+                                <div className="fs-2 fw-light font-f-lato">Se kart over løypa</div>
+                                <div className="fs-6 fw-light font-f-lato">
+                                    Klar til å utforske? Se løypa som aldri før med vår interaktive kartvisning! Fra
+                                    start til mål, følg løypa i detalj og planlegg ditt neste eventyr. Enten du er en
+                                    erfaren løper eller nybegynner, vårt kart gir deg muligheten til å utforske
+                                    terrenget og gjøre deg klar til å erobre bakken. Ta tak i staven og la eventyret
+                                    begynne!
+                                </div>
+                            </div>
+                        </CardItem>
+                        <CardItem>
+                            <CardImage src={oynaheiaMap} alt="Map of skiing area"/>
+                        </CardItem>
+                    </CardContainer>
+                    <CardContainer>
+                        <CardItem>
+                            <CardImage src={myHistory} alt="History of my completed ski races"/>
+                        </CardItem>
+                        <CardItem>
+                            <div className="text-container">
+                                <div className="fs-2 fw-light font-f-lato">Hold oversikt over dine merker</div>
+                                <div className="fs-6 fw-light font-f-lato">
+                                    Utforsk din samling av skimerker og gjenopplev dine episke skieventyr. Fra de første
+                                    sporene til de mest utfordrende løypene, din skimerkeoversikt er ditt kart til
+                                    skiglede og suksess. Oppdag din stolthet og la eventyret fortsette!
+                                </div>
+                            </div>
+                        </CardItem>
+
+                    </CardContainer>
                 </CardStack>
             </div>
-        );
+        )
+            ;
     }
 }

@@ -47,13 +47,23 @@
 
 .card-text {}
 
+@media screen and (max-width: 992px){
+    .card-stack {
+        padding: 0 1.2rem;
+    }
+    .card-outer-container {
+        width: 100%;
+        padding: 3.125rem 1rem;
+    }
+    
+}
 @media screen and (max-width: 768px) {
     .card-item {
         flex: 0 0 100%; /* Each item takes full width */
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
+        /*display: flex;*/
+        /*flex-direction: column;*/
+        /*justify-content: center;*/
+        /*align-items: center;*/
     }
     
     .card-item .card-image-container {
