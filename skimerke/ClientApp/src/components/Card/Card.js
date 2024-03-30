@@ -4,7 +4,20 @@ import "./Card.css";
 // CardContainer is the parent
 // The CardContainer can hold as many CardItem as you want
 // The CardImage can be used inside of a CardItem to set the size equal to the Card Item
-const CardContainer = ({ children }) => {
+const CardStack = ({children, isDirectionVertical = true}) => {
+    return (
+        isDirectionVertical ?
+            <div className="card-stack card-stack-vertical">
+                {children}
+            </div>
+            :
+            <div className="card-stack card-stack-horizontal">
+                {children}
+            </div>
+            
+    )
+}
+const CardContainer = ({children}) => {
     return (
         <div className="card-outer-container">
             <div className="card-inner-container">
@@ -14,7 +27,7 @@ const CardContainer = ({ children }) => {
     );
 }
 
-const CardItem = ({ children }) => {
+const CardItem = ({children}) => {
     return (
         <div className="card-item card-text">
             {children}
@@ -23,7 +36,7 @@ const CardItem = ({ children }) => {
 }
 
 //Can define your own width to overwrite the width. Else the width will be 100% of its parent
-const CardImage = ({ src, alt = "Insert alternative text", width }) => {
+const CardImage = ({src, alt = "Insert alternative text", width}) => {
     const cardImageStyle = {
         width: width ? width : '100%'
     }
@@ -34,4 +47,4 @@ const CardImage = ({ src, alt = "Insert alternative text", width }) => {
     );
 }
 
-export {CardContainer, CardItem, CardImage};
+export {CardStack, CardContainer, CardItem, CardImage};
