@@ -48,6 +48,7 @@ namespace skimerke.Data
                 {
                     new ApplicationUser
                     {
+                        UserName = "test@test.com",
                         Email = "test@test.com",
                         EmailConfirmed = true,
                     }
