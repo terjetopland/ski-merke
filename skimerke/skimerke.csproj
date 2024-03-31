@@ -33,6 +33,7 @@
     <Folder Include="ClientApp\src\components\Footerbar\" />
     <Folder Include="ClientApp\src\components\Navbar\" />
     <Folder Include="ClientApp\src\Utils\" />
+    <Folder Include="wwwroot\images\profile\" />
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">

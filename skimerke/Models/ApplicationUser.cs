@@ -5,7 +5,6 @@ namespace skimerke.Models;
 
 public class ApplicationUser : IdentityUser
 {
-    [StringLength(maximumLength: 100)]
-    public string? ProfileImage { get; set; }
+    [StringLength(maximumLength: 100)] public string ProfileImage { get; set; } = string.Empty;
 }
 
