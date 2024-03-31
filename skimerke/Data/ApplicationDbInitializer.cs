@@ -38,6 +38,8 @@ namespace skimerke.Data
                     new Requirement { Minutes = 33, Gender = "Female", Distance = 5, Lower_age = 19, Upper_age = 34 },
                     new Requirement { Minutes = 38, Gender = "Female", Distance = 5, Lower_age = 35, Upper_age = 49}
                 );
+                
+                context.SaveChanges();
 
                 if (context.ApplicationUsers.Any())
                 {
