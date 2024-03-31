@@ -34,9 +34,10 @@ var app = builder.Build();
 // call the database initializer
 using (var scope = app.Services.CreateScope())
 {   
-    var services = scope.ServiceProvider;
+    var services = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+    var um = scope.ServiceProvider.GetRequiredService<UserManager<ApplicationUser>>();
     //var db = services.GetRequiredService<ApplicationDbContext>();
-    ApplicationDbContextInitializer.Initialize(services);
+    ApplicationDbContextInitializer.Initialize(services, um);
 }
 
 // Configure the HTTP request pipeline.

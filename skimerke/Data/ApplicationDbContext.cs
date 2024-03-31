@@ -15,5 +15,6 @@ namespace skimerke.Data
 
         // DbSet for Requirement entity
         public DbSet<Requirement> Requirements { get; set; }
+        public DbSet<ApplicationUser> ApplicationUsers { get; set; }
     }
 }

@@ -1,6 +1,7 @@
 using System;
 using System.Linq;
 using Duende.IdentityServer.EntityFramework.Options;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
@@ -10,13 +11,8 @@ namespace skimerke.Data
 {
     public static class ApplicationDbContextInitializer
     {
-        public static void Initialize(IServiceProvider serviceProvider)
+        public static void Initialize(ApplicationDbContext context, UserManager<ApplicationUser> userManager)
         {
-            using (var context = new ApplicationDbContext(
-                       serviceProvider.GetRequiredService<DbContextOptions<ApplicationDbContext>>(),
-                       serviceProvider.GetRequiredService<IOptions<OperationalStoreOptions>>()))
-            {
-                
                 // Ensure that the database deleted on start
                 context.Database.EnsureDeleted();
                 
@@ -43,9 +39,23 @@ namespace skimerke.Data
                     new Requirement { Minutes = 38, Gender = "Female", Distance = 5, Lower_age = 35, Upper_age = 49}
                 );
 
-                // Save changes to the database
+                if (context.ApplicationUsers.Any())
+                {
+                    return;
+                }
+
+                var appUser = new[]
+                {
+                    new ApplicationUser
+                    {
+                        Email = "test@test.com",
+                        EmailConfirmed = true,
+                    }
+                };
+                context.ApplicationUsers.AddRange(appUser);
+                userManager.CreateAsync(appUser[0], "Test123.").Wait();
                 context.SaveChanges();
-            }
+            
         }
     }
 }
