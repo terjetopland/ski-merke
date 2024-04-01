@@ -1,0 +1,13 @@
+
+input[type="file"], input[type="submit"] {
+    display: none;
+}
+.profile-img {
+    width: 16rem;
+    height: 16rem;
+    border-radius: 50%;
+}
+
+.preview-img {
+    margin: 0 auto;
+}
