@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import {CardContainer} from "../Card/Card";
 import defaultProfileImg from "../../images/landingPage.png"
 import "./AddProfileImage.css"
-
+import {AddProfileImageAPI} from "./AddProfileImageAPI";
 
 // Followed this video to make the file upload.
 const DefaultProfileImageSrc = defaultProfileImg;
@@ -44,16 +44,31 @@ export const AddProfileImage = () => {
             })
         }
     }
+
+    const addOrEdit = (formData, onSuccess) => {
+
+    }
+    
+    const resetForm = () => {
+        setValues(initialValues);
+        document.getElementById('image-upload').value = null;
+    }
     
     const validateImg = () => {
-        let temp = {};
-        
+        return values.profileImageSrc !== DefaultProfileImageSrc;
     }
     
     const handleFormSubmit = (e) => {
         // Prevent reload of page after submit
         e.preventDefault();
+        if (validateImg()) {
+            const formData = new FormData();
+            formData.append('ProfileImage', values.profileImageFile)
+            addOrEdit(formData, resetForm)
+        }
     }
+    
+    
 
     return (
         <div>
@@ -61,11 +76,11 @@ export const AddProfileImage = () => {
                 <CardContainer>
                     <div className="mx-auto">
                         <div className="form-group pb-2 mx-auto text-center">
-                            <label htmlFor="file-upload" className="btn btn-primary">Velg bildefil</label>
-                            <input id="file-upload" type="file" accept="image/*" className="form-control-file"
+                            <label htmlFor="image-upload" className="btn btn-primary">Velg bildefil</label>
+                            <input id="image-upload" type="file" accept="image/*" className="form-control-file"
                                    onChange={imagePreview}/>
                         </div>
-                        <div>
+                        <div className="text-center">
                             <img src={values.profileImageSrc} alt="Profile image comes here" className="profile-img"/>
                         </div>
                         <div className="form-group text-center pt-2">

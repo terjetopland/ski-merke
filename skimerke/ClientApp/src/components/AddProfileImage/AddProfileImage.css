@@ -3,8 +3,9 @@ input[type="file"], input[type="submit"] {
     display: none;
 }
 .profile-img {
-    width: 16rem;
-    height: 16rem;
+    min-width: 150px;
+    width: 30%;
+    aspect-ratio: 1;
     border-radius: 50%;
 }
 
