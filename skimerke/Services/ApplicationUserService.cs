@@ -8,6 +8,7 @@ public class ApplicationUserService(ApplicationDbContext applicationDbContext, U
 {
     public async Task<ApplicationUser> UploadProfileImage(ApplicationUser applicationUser, IFormFile imageFile)
     {
+        Console.WriteLine("you are at the service");
         // Check if image file is not null and size is greater than 0
         if (imageFile != null && imageFile.Length > 0)
         {
@@ -32,7 +33,7 @@ public class ApplicationUserService(ApplicationDbContext applicationDbContext, U
             return applicationUser;
         }
 
-        return null; // If no image is uploaded
+        return applicationUser; // If no image is uploaded
     }
 
 }

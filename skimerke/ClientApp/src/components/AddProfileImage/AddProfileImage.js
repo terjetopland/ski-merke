@@ -44,10 +44,6 @@ export const AddProfileImage = () => {
             })
         }
     }
-
-    const addOrEdit = (formData, onSuccess) => {
-
-    }
     
     const resetForm = () => {
         setValues(initialValues);
@@ -58,15 +54,22 @@ export const AddProfileImage = () => {
         return values.profileImageSrc !== DefaultProfileImageSrc;
     }
     
-    const handleFormSubmit = (e) => {
+    const handleFormSubmit = async e => {
         // Prevent reload of page after submit
         e.preventDefault();
-        if (validateImg()) {
-            const formData = new FormData();
-            formData.append('ProfileImage', values.profileImageFile)
-            addOrEdit(formData, resetForm)
+        try {
+            if(values.profileImageFile) {
+                const formData = new FormData();
+                formData.append('fileImage', values.profileImageFile);
+                await AddProfileImageAPI(formData);
+                // Optionally, you can perform additional actions after successful upload
+                console.log('Profile image uploaded successfully');
+            }
+        } catch (error) {
+            console.error('Error uploading profile image:', error);
+            // Handle error if needed
         }
-    }
+    };
     
     
 
