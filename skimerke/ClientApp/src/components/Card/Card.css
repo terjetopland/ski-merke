@@ -15,7 +15,7 @@
 .card-outer-container {
     width: 90%;
     margin: 10px auto;
-    padding: 3.125rem;
+    /*padding: 3.125rem; */
     background-color: #e3eeff;
     border-radius: 1.25rem;
     box-shadow: 0 4px 5px;

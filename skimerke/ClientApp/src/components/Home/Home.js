@@ -23,7 +23,7 @@ export class Home extends Component {
                             <div className="fs-6 fw-light small-size-header-2">
                                 Din portal for effektive og enkle skitester
                             </div>
-                            <AnimationLandingPage/>
+                           <AnimationLandingPage/>
                         </div>
                     </div>
                 </div>
