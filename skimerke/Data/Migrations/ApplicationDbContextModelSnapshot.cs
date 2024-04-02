@@ -360,8 +360,8 @@ namespace skimerke.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("Distance")
-                        .HasColumnType("INTEGER");
+                    b.Property<float>("Distance")
+                        .HasColumnType("REAL");
 
                     b.Property<string>("Gender")
                         .IsRequired()
