@@ -12,9 +12,9 @@ namespace skimerke.Data
             : base(options, operationalStoreOptions)
         {
         }
-
-        // DbSet for Requirement entity
+        
         public DbSet<Requirement> Requirements { get; set; }
         public DbSet<ApplicationUser> ApplicationUsers => Set<ApplicationUser>();
+        public DbSet<Person> Persons => Set<Person>();
     }
 }
