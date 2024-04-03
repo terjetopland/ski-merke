@@ -8,6 +8,7 @@ import myHistory from "../../images/min_historie.png";
 import "../../custom.css"
 import "./Home.css"
 import {AnimationLandingPage} from "../AnimationLandingPage/AnimationLandingPage";
+import Footer from "../Footer/Footer";
 
 export class Home extends Component {
     static displayName = Home.name;
@@ -119,6 +120,7 @@ export class Home extends Component {
 
                     </CardContainer>
                 </CardStack>
+                <Footer />
             </div>
         )
             ;
