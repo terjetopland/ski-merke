@@ -1,6 +1,7 @@
 using System;
 using System.Linq;
 using Duende.IdentityServer.EntityFramework.Options;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
@@ -8,18 +9,32 @@ using skimerke.Models;
 
 namespace skimerke.Data
 {
-    public static class ApplicationDbContextInitializer
+    public static class ApplicationDbInitializer
     {
-        public static void Initialize(IServiceProvider serviceProvider)
+        public static void Initialize(ApplicationDbContext context, UserManager<ApplicationUser> userManager)
         {
-            using (var context = new ApplicationDbContext(
-                       serviceProvider.GetRequiredService<DbContextOptions<ApplicationDbContext>>(),
-                       serviceProvider.GetRequiredService<IOptions<OperationalStoreOptions>>()))
-            {
-                
                 // Ensure that the database deleted on start
                 context.Database.EnsureDeleted();
+                
+                // Ensure that the database is created
+                context.Database.EnsureCreated();
 
+                if (!userManager.Users.Any())
+                {
+                    
+                    var user = new ApplicationUser
+                        {
+                            UserName = "test@test.com",
+                            Email = "test@test.com",
+                            EmailConfirmed = true,
+                        };
+                    
+                    userManager.CreateAsync(user, "Test123.").Wait();
+                    context.SaveChanges();
+                    
+                }
+
+                if (context.Requirements.Any()){return;}
                 context.Requirements.AddRange(
                     
                     new Requirement { Minutes = 17, Gender = "Male", Distance = 2, Lower_age = 1, Upper_age = 10},
@@ -59,21 +74,10 @@ namespace skimerke.Data
                     new Requirement { Minutes = 66, Gender = "Female", Distance = 5, Lower_age = 75, Upper_age = 200}
                     
                 );
-                // Ensure that the database is created
-                context.Database.EnsureCreated();
-
-                // Check if there is already data in the Requirements table
-                if (context.Requirements.Any())
-                {
-                    // If there is already data, do nothing
-                    return;
-                }
-
-                // Add some sample data to the Requirements table
 
                 // Save changes to the database
                 context.SaveChanges();
-            }
+            
         }
     }
 }

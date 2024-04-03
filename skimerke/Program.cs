@@ -32,11 +32,12 @@ builder.Services.AddScoped<IRequirementService, RequirementService>();
 var app = builder.Build();
 
 // call the database initializer
-using (var scope = app.Services.CreateScope())
+using (var services = app.Services.CreateScope())
 {   
-    var services = scope.ServiceProvider;
-    //var db = services.GetRequiredService<ApplicationDbContext>();
-    ApplicationDbContextInitializer.Initialize(services);
+    
+    var db = services.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+    var um = services.ServiceProvider.GetRequiredService<UserManager<ApplicationUser>>();
+    ApplicationDbInitializer.Initialize(db, um);
 }
 
 // Configure the HTTP request pipeline.
