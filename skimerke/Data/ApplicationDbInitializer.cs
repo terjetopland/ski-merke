@@ -30,6 +30,19 @@ namespace skimerke.Data
                         };
                     
                     userManager.CreateAsync(user, "Test123.").Wait();
+                    
+                    // Create a new Person
+                    var person = new Person
+                    {
+                        FirstName = "Test",
+                        LastName = "Testesen",
+                        DateOfBirth = new DateTime(1990, 1, 1),
+                        Gender = PersonGender.Male.ToString(), 
+                        ApplicationUserId = user.Id 
+                    };
+
+                    // Add the person to the context and save changes
+                    context.Persons.Add(person);
                     context.SaveChanges();
                     
                 }

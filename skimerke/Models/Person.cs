@@ -31,4 +31,8 @@ public class Person
     [DataType(DataType.Date)]
     [Display(Name = "Date of birth")]
     public DateTime DateOfBirth { get; set; } = DateTime.Now.Date;
+    
+    // Foreign key to ApplicationUser
+    public string? ApplicationUserId { get; set; }
+    public ApplicationUser ApplicationUser { get; set; }
 }
