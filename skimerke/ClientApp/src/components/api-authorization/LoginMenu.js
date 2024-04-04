@@ -3,6 +3,9 @@ import { NavItem, NavLink } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import authService from './AuthorizeService';
 import { ApplicationPaths } from './ApiAuthorizationConstants';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUser, faUserPlus } from '@fortawesome/free-solid-svg-icons';
+import './LoginMenu.css'
 
 export class LoginMenu extends Component {
   constructor(props) {
@@ -46,24 +49,36 @@ export class LoginMenu extends Component {
   }
 
   authenticatedView(userName, profilePath, logoutPath, logoutState) {
-    return (<Fragment>
-      <NavItem>
-        <NavLink tag={Link} className="text-dark" to={profilePath}>Hello {userName}</NavLink>
-      </NavItem>
-      <NavItem>
-        <NavLink replace tag={Link} className="text-dark" to={logoutPath} state={logoutState}>Logout</NavLink>
-      </NavItem>
-    </Fragment>);
+    return (
+        <Fragment>
+          <NavItem>
+            <NavLink tag={Link} className="text-dark position-relative" to={profilePath}>
+              <FontAwesomeIcon icon={faUser} className="icon" /> Hello {userName}
+            </NavLink>
+          </NavItem>
+          <NavItem>
+            <NavLink replace tag={Link} className="text-dark position-relative" to={logoutPath} state={logoutState}>
+              <FontAwesomeIcon icon={faUser} className="icon" /> Logout
+            </NavLink>
+          </NavItem>
+        </Fragment>
+    );
   }
 
   anonymousView(registerPath, loginPath) {
-    return (<Fragment>
-      <NavItem>
-        <NavLink tag={Link} className="text-dark" to={registerPath}>Register</NavLink>
-      </NavItem>
-      <NavItem>
-        <NavLink tag={Link} className="text-dark" to={loginPath}>Login</NavLink>
-      </NavItem>
-    </Fragment>);
+    return (
+        <Fragment>
+          <NavItem>
+            <NavLink tag={Link} className="text-dark position-relative" to={loginPath}>
+              <FontAwesomeIcon icon={faUser} className="icon" /> Logg inn
+            </NavLink>
+          </NavItem>
+          <NavItem>
+            <NavLink tag={Link} className="text-dark position-relative" to={registerPath}>
+              <FontAwesomeIcon icon={faUserPlus} className="icon" /> Registrer
+            </NavLink>
+          </NavItem>
+        </Fragment>
+    );
   }
 }
