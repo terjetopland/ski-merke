@@ -19,9 +19,9 @@ export class Home extends Component {
                 <div className="top-container">
                     <div className="top">
                         <img src={landingPage} alt="Cross country skiing - mountains"/>
-                        <div className="centered font-f-lato">
-                            <div className="display-4 fw-normal small-size-header-1" >Skimerke</div>
-                            <div className="fs-6 fw-light small-size-header-2">
+                        <div className="centered">
+                            <div className="display-3 fw-normal small-size-header-1" >Skimerke</div>
+                            <div className="fs-5 fw-light small-size-header-2">
                                 Din portal for effektive og enkle skitester
                             </div>
                            <AnimationLandingPage/>
@@ -32,7 +32,7 @@ export class Home extends Component {
                     <CardContainer>
                         <CardItem>
                             <div className="text-container">
-                                <div className="fs-2 fw-light font-f-lato">Hva er norsk skimerke?</div>
+                                <div className="fs-3 fw-bold pb-4 pt-4 header">Hva er norsk skimerke?</div>
                                 <div className="fs-6 fw-light font-f-lato">
                                     NSFs Norsk Skimerke ble stiftet i 1938 til fremme av skiidretten.
                                     Merket finnes i bronse, sølv, emalje og gull. Alle merkene har samme krav.
@@ -77,7 +77,7 @@ export class Home extends Component {
                         </CardItem>
                         <CardItem>
                             <div className="text-container">
-                                <div className="fs-2 fw-light font-f-lato">Meld deg på skirenn</div>
+                                <div className="fs-3 fw-bold pb-4 pt-4 header">Meld deg på skirenn</div>
                                 <div className="fs-6 fw-light font-f-lato">
                                     Klar for eventyret? Meld deg på skirenn og bli en del av spenningen! Med vår enkle
                                     påmeldingsprosess er du bare noen få klikk unna å ta del i actionen. Velkommen til
@@ -89,7 +89,7 @@ export class Home extends Component {
                     <CardContainer>
                         <CardItem>
                             <div className="text-container">
-                                <div className="fs-2 fw-light font-f-lato">Se kart over løypa</div>
+                                <div className="fs-3 fw-bold pb-4 pt-4 header">Se kart over løypa</div>
                                 <div className="fs-6 fw-light font-f-lato">
                                     Klar til å utforske? Se løypa som aldri før med vår interaktive kartvisning! Fra
                                     start til mål, følg løypa i detalj og planlegg ditt neste eventyr. Enten du er en
@@ -109,7 +109,7 @@ export class Home extends Component {
                         </CardItem>
                         <CardItem>
                             <div className="text-container">
-                                <div className="fs-2 fw-light font-f-lato">Hold oversikt over dine merker</div>
+                                <div className="fs-3 fw-bold pb-4 pt-4 header">Hold oversikt over dine merker</div>
                                 <div className="fs-6 fw-light font-f-lato">
                                     Utforsk din samling av skimerker og gjenopplev dine episke skieventyr. Fra de første
                                     sporene til de mest utfordrende løypene, din skimerkeoversikt er ditt kart til

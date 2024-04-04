@@ -16,7 +16,7 @@
     margin: 0 auto;
     background-color: #e3eeff;
     border-radius: 1.25rem;
-    box-shadow: 0 4px 5px;
+    box-shadow: 0 2px 3px 0 rgba(0,0,0,0.2), 0 8px 15px 0 rgba(0,0,0,0.19);
 }
 
 .card-inner-container {
