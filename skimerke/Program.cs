@@ -28,6 +28,7 @@ builder.Services.AddRazorPages();
 
 // Service configuration
 builder.Services.AddScoped<IRequirementService, RequirementService>();
+builder.Services.AddScoped<IPersonService, PersonService>();
 
 var app = builder.Build();
 
