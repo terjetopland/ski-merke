@@ -16,5 +16,6 @@ namespace skimerke.Data
         public DbSet<Requirement> Requirements { get; set; }
         public DbSet<ApplicationUser> ApplicationUsers => Set<ApplicationUser>();
         public DbSet<Person> Persons => Set<Person>();
+        
     }
 }
