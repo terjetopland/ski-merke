@@ -1,0 +1,12 @@
+.position-relative {
+    position: relative;
+}
+
+.icon {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-150%) translateX(30px);
+    
+    margin-right: 0.5rem; /* Adjust as needed */
+}
