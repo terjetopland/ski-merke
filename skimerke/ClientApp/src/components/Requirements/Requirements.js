@@ -1,7 +1,8 @@
 import React, {useState, useEffect} from 'react';
-import RequirementBadge from "./RequirementBadge/RequirementBadge.js";
+import RequirementBadge from "../RequirementBadge/RequirementBadge.js";
 import "./Requirements.css";
-import {CardContainer, CardItem, CardStack} from "./Card/Card";
+import {CardContainer, CardItem, CardStack} from "../Card/Card";
+import Footer from "../Footer/Footer";
 
 export default function Requirements() {
     const [requirements, setRequirements] = useState([]);
@@ -65,6 +66,7 @@ export default function Requirements() {
                         </CardItem>
                     </CardContainer>
                     </CardStack>
+                    <CardStack>
                 <CardContainer>
                     
 
@@ -116,6 +118,8 @@ export default function Requirements() {
                         </div>
                     </CardItem>
                 </CardContainer>
+                    </CardStack>
+                <Footer/>
             </section>
         </>
     );
