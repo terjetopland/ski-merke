@@ -7,11 +7,10 @@
     padding: 0.8125rem 1rem;
     gap: 1.9375rem;
     background-color: #ffffff;
-    width: 447px;
+    width: 40em;
     margin: 20px;
     height: 70px;
     box-shadow: 0 2px 3px 0 rgba(0,0,0,0.2), 0 8px 15px 0 rgba(0,0,0,0.19);
-    cursor: default;
 }
 .badge:hover {
     scale: 1.1;
@@ -60,6 +59,6 @@
 
 @media screen and (max-width: 450px) {
     .badge {
-        width: 90%;
+        width: 20%;
     }
 }
