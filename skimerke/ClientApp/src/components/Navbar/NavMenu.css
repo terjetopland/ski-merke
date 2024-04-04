@@ -1,4 +1,8 @@
-﻿a.navbar-brand {
+﻿.navbar {
+  border-bottom: 2px solid white; /* Add a white border to the bottom of the navbar */
+}
+
+.navbar-brand {
   white-space: normal;
   text-align: center;
   word-break: break-all;
@@ -17,3 +21,15 @@ html {
   box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
 }
 
+.boarder {
+  text-decoration: underline black;
+}
+
+.gradient {
+  background: linear-gradient(to right, #4185D3, #96C5F7); 
+}
+
+.logo {
+  height: 50px;
+  width: 80px;
+}
