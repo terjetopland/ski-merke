@@ -7,7 +7,7 @@ import oynaheiaMap from "../../images/oynaheia_kart.png";
 import myHistory from "../../images/min_historie.png";
 import "../../custom.css"
 import "./Home.css"
-import {AnimationLandingPage} from "../AnimationLandingPage/AnimationLandingPage";
+import {AnimationLandingPage} from "./AnimationLandingPage/AnimationLandingPage";
 import Footer from "../Footer/Footer";
 
 export class Home extends Component {
@@ -20,7 +20,7 @@ export class Home extends Component {
                     <div className="top">
                         <img src={landingPage} alt="Cross country skiing - mountains"/>
                         <div className="centered font-f-lato">
-                            <div className="display-4 fw-normal small-size-header-1">Skimerke</div>
+                            <div className="display-4 fw-normal small-size-header-1" >Skimerke</div>
                             <div className="fs-6 fw-light small-size-header-2">
                                 Din portal for effektive og enkle skitester
                             </div>
