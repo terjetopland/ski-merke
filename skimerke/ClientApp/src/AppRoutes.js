@@ -9,7 +9,7 @@ const AppRoutes = [
     element: <Home />
   },
   {
-    path: '/Requirements',
+    path: '/krav-og-info',
     element: <Requirements />
   },
   {
