@@ -34,5 +34,5 @@ public class Person
     
     // Foreign key to ApplicationUser
     public string? ApplicationUserId { get; set; }
-    public ApplicationUser ApplicationUser { get; set; }
+    public ApplicationUser? ApplicationUser { get; set; }
 }
