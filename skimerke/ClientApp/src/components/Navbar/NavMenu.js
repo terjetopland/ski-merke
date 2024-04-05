@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import { LoginMenu } from '../api-authorization/LoginMenu';
 import './NavMenu.css';
 import Logo from '../../images/logo.png';
-import { faUser, faUserPlus } from "@fortawesome/free-solid-svg-icons";
 
 export class NavMenu extends Component {
   static displayName = NavMenu.name;
@@ -41,7 +40,7 @@ export class NavMenu extends Component {
             <Collapse className="d-sm-inline-flex flex-sm-row-reverse" isOpen={!this.state.collapsed} navbar>
               <ul className="navbar-nav flex-grow">
                 <NavItem>
-                  <NavLink tag={Link} className={`nav-link text-dark ${activeNavItem === 'home' ? 'active' : ''}`} to="/" onClick={() => this.handleNavItemSelect('home')}>Home</NavLink>
+                  <NavLink tag={Link} className={`nav-link text-dark ${activeNavItem === 'home' ? 'active' : ''}`} to="/" onClick={() => this.handleNavItemSelect('home')}>Hjem</NavLink>
                 </NavItem>
                 <NavItem>
                   <NavLink tag={Link} className={`nav-link text-dark ${activeNavItem === 'krav-og-info' ? 'active' : ''}`} to="/krav-og-info" onClick={() => this.handleNavItemSelect('krav-og-info')}>Krav og info</NavLink>

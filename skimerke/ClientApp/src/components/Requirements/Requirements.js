@@ -1,8 +1,21 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import RequirementBadge from "../RequirementBadge/RequirementBadge.js";
-import "./Requirements.css";
-import {CardContainer, CardItem, CardStack} from "../Card/Card";
+import { CardContainer, CardItem, CardStack } from "../Card/Card";
 import Footer from "../Footer/Footer";
+import "./Requirements.css";
+
+function renderRequirementBadges(requirements) {
+    return requirements.map(requirement => (
+        <RequirementBadge
+            key={requirement.id}
+            gender={requirement.gender}>
+            {requirement.lower_age < 11 ? `${requirement.upper_age} år og yngre` :
+                requirement.upper_age < 75 ? `${requirement.lower_age} til ${requirement.upper_age} år` :
+                    `${requirement.lower_age} år og eldre`}
+            - {requirement.distance} km på {requirement.minutes} minutter
+        </RequirementBadge>
+    ));
+}
 
 export default function Requirements() {
     const [requirements, setRequirements] = useState([]);
@@ -20,13 +33,9 @@ export default function Requirements() {
             console.error('Error fetching data:', error);
         }
     }
-    const male = requirements.filter(req => req.gender === "Male");
-    
-    console.log(male);
-    
-    const female = requirements.filter(req => req.gender === "Female");
 
-    console.log(female);
+    const male = requirements.filter(req => req.gender === "Male");
+    const female = requirements.filter(req => req.gender === "Female");
 
     return (
         <>
@@ -34,9 +43,8 @@ export default function Requirements() {
                 <CardStack isDirectionVertical={false}>
                     <CardContainer>
                         <CardItem>
-                            
-                            <div className="fs-4 fw-bold font-f-lato pb-4 pt-4" >Krav og info</div>
-                            <p className="krav-og-info-text font-f-lato">NSFs Norsk Skimerke ble stiftet i 1938 til fremme av
+                            <div className="fs-3 fw-bold pb-4 pt-4 header" >Krav og info</div>
+                            <p className="krav-og-info-text">NSFs Norsk Skimerke ble stiftet i 1938 til fremme av
                                 skiidretten. Merket finnes i bronse,
                                 sølv, emalje og gull. Alle merkene har samme krav. Kravene er aldersbestemte og innfris
                                 i
@@ -45,7 +53,7 @@ export default function Requirements() {
                     </CardContainer>
                     <CardContainer>
                         <CardItem>
-                            <div className="fs-4 fw-bold font-f-lato pb-4 pt-4">Merkeprøver</div>
+                            <div className="fs-3 fw-bold pb-4 pt-4 header">Merkeprøver</div>
                             <p className="krav-og-info-text">Merkeprøver kan arrangeres av alle lag tilsluttet NSF, av
                                 bedriftsidrettslag, militære,
                                 skoler, speidere, skiskoler, etc. Merkeprøvene kan med fordel legges inn på Skisportens
@@ -54,7 +62,7 @@ export default function Requirements() {
                                 ordinere renn, hotellrenn, etc. PS! Avlagt prøve for Norsk Skimerke godkjennes som
                                 utholdenhetsprøve for Norges Idrettsforbunds Idrettsmerke.</p>
 
-                            <div className="fs-4 fw-bold font-f-lato pb-4 pt-4">Merkekrav</div>
+                            <div className="fs-3 pb-4 pt-4 header">Merkekrav</div>
                             <p className="krav-og-info-text">Deltagerne må innfri kravene til bronse og innløse merket
                                 før
                                 sølv kan tas, osv. Det kan kun tas ett merke pr. år.
@@ -65,65 +73,28 @@ export default function Requirements() {
                                 hver prøve dobbelt for alle over 60 år.</p>
                         </CardItem>
                     </CardContainer>
-                    </CardStack>
-                    <CardStack>
-                <CardContainer>
-                    
+                </CardStack>
 
-                    <div style={{width: "100%"}}>
-                    <h2 className="req_title text-center ">Merkekrav for langrenn (klasser følger kalenderår)</h2>
-                    </div>
-                    {/* MALE */}
-
-                    <CardItem>
-                        <div>
-                            {male.map(requirement => (
-                                requirement.lower_age < 11 ?
-                                    <RequirementBadge
-                                        gender={requirement.gender}>{requirement.upper_age} og yngre
-                                        - {requirement.distance} km på {requirement.minutes} minutter</RequirementBadge>
+                <CardStack>
+                    <CardContainer>
+                        <div style={{ width: "100%" }}>
+                            <h2 className="req_title text-center fs-3">Merkekrav for langrenn (klasser følger kalenderår)</h2>
+                        </div>
+                        <CardItem>
                             
-                              : requirement.upper_age < 75  ? <RequirementBadge
-                                    gender={requirement.gender}>{requirement.lower_age} til {requirement.upper_age} år
-                                    - {requirement.distance} km på {requirement.minutes} minutter</RequirementBadge>
-                                
-                                :  <RequirementBadge
-                                            gender={requirement.gender}>{requirement.lower_age} og eldre
-                                            - {requirement.distance} km på {requirement.minutes} minutter</RequirementBadge>
-                                ))}
-                        </div>
-                    </CardItem>
-            
-                
-                
-                    {/* FEMALE */}
-                    <CardItem className="">
-                        <div>
-                            {female.map(requirement => (
-                                requirement.lower_age < 11 ?
-                                    <RequirementBadge
-                                        gender={requirement.gender}>{requirement.upper_age} og yngre
-                                        - {requirement.distance} km på {requirement.minutes} minutter</RequirementBadge>
+                                {renderRequirementBadges(male)}
+                            
+                        </CardItem>
+                        <CardItem className="">
+                            <div>
+                                {renderRequirementBadges(female)}
+                            </div>
+                        </CardItem>
+                    </CardContainer>
+                </CardStack>
 
-                                    : requirement.upper_age < 75 ? <RequirementBadge
-                                            gender={requirement.gender}>{requirement.lower_age} til {requirement.upper_age} år
-                                            - {requirement.distance} km på {requirement.minutes} minutter</RequirementBadge>
-
-                                        : <RequirementBadge
-                                            gender={requirement.gender}>{requirement.lower_age} og eldre
-                                            - {requirement.distance} km på {requirement.minutes} minutter</RequirementBadge>
-
-                            ))}
-
-                        </div>
-                    </CardItem>
-                </CardContainer>
-                    </CardStack>
-                <Footer/>
+                <Footer />
             </section>
         </>
     );
 }
-
-
-//export default Requirements;
