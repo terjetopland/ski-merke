@@ -1,64 +1,111 @@
+
 .badge {
     border-radius: 0.625rem;
     display: flex;
-    flex-direction: row;
     justify-content: space-between;
     align-items: center;
     padding: 0.8125rem 1rem;
-    gap: 1.9375rem;
     background-color: #ffffff;
-    width: 40em;
-    margin: 20px;
-    height: 70px;
+    width: auto;
+    margin: 15px;
+    height: 60px;
     box-shadow: 0 2px 3px 0 rgba(0,0,0,0.2), 0 8px 15px 0 rgba(0,0,0,0.19);
 }
+
 .badge:hover {
-    scale: 1.1;
+    transform: scale(1.1);
 }
-.group-9-7 {
-    height: 57px;
-    width: 70px;
-}
-.msquare {
-    height: 57px;
-    width: 70px;
-    background: #96C5F7;
-    border-radius: 0.625rem;
-    display: flex;
-    justify-content: center; 
-    align-items: center; 
-}
-.fsquare {
-    height: 57px;
-    width: 70px;
-    background: #ffbc42;
+
+.msquare, .fsquare {
+    height: 3.125rem; 
+    width: 4.0625rem; 
     border-radius: 0.625rem;
     display: flex;
     justify-content: center;
     align-items: center;
+    background: #96C5F7;
 }
 
-.rectangle-5-6 {
-    align-content: center;
+.fsquare {
+    background: #ffbc42;
 }
-.text-2 {
+
+.text_badge {
+    flex-grow: 1;
+    text-align: center;
     color: black;
-    font-size: 20px;
-    text-align: center;
-    margin: 0;
-}
-.text {
-    width: 300px;
-    text-align: center;
-    color:black;
-    font-size: 20px;
-    font-family: lato;
+    font-size: 1.25rem; 
+    font-family: 'Nunito Sans', serif;
     font-weight: normal;
 }
 
-
-@media screen and (max-width: 450px) {
+@media screen and (max-width: 600px) {
     .badge {
-        width: 20%;
+        padding: 0.5rem;
+        margin: 10px auto;
+    }
+
+    .msquare, .fsquare {
+        height: 2.875rem; 
+        width: 3.5rem; 
+    }
+
+    .text_badge {
+        font-size: 1rem;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .badge {
+        padding: 0.3rem;
+        margin: 10px auto;
+    }
+
+    .msquare, .fsquare {
+        height: 2.875rem; 
+        width: 3.5rem; 
+    }
+
+    .text_badge {
+        font-size: 0.875rem; 
+    }
+}
+
+@media screen and (max-width: 430px) {
+    .badge {
+        margin: 10px auto;
+        padding: 0.2rem;
+        height: auto;
+    }
+
+    .msquare, .fsquare {
+        height: 2.4rem; 
+        width: 2.9rem; 
+    }
+
+    .text_badge {
+        font-size: 0.75rem;
+    }
+}
+
+@media screen and (max-width: 390px) {
+    .badge {
+        margin: 10px auto;
+        padding: 0.2rem;
+    }
+
+    .msquare, .fsquare {
+        height: 2.25rem; 
+        width: 2.75rem; 
+    }
+
+    .text_badge {
+        font-size: 0.625rem; 
+    }
+}
+
+@media screen and (min-width: 501px) {
+    .badge {
+        margin: 15px;
     }
 }

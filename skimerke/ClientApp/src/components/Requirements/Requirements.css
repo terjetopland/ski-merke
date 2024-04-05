@@ -5,9 +5,14 @@
     padding: 40px;
 }
 
+.header {
+    font-weight: bold;
+}
+
 .krav-og-info-text {
     font-size: 17px;
 }
+
 section {
     background:  linear-gradient(90deg, #c7e0ff 100%, #c7e0ff 20%);
     padding-top: 40px;
