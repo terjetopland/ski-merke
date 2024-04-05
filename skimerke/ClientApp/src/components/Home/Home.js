@@ -9,6 +9,7 @@ import "../../custom.css"
 import "./Home.css"
 import {AnimationLandingPage} from "./AnimationLandingPage/AnimationLandingPage";
 import Footer from "../Footer/Footer";
+import {AddPersonForm} from "../AddPersonForm/AddPersonForm";
 
 export class Home extends Component {
     static displayName = Home.name;
@@ -28,6 +29,7 @@ export class Home extends Component {
                         </div>
                     </div>
                 </div>
+                <AddPersonForm/>
                 <CardStack>
                     <CardContainer>
                         <CardItem>
