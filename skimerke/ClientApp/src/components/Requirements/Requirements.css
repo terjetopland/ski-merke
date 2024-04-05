@@ -3,19 +3,15 @@
     font-weight: bold;
     text-align: center;
     padding: 40px;
-    font-family: 'Nunito Sans', serif;
 }
 
 .header {
-    font-family: 'Nunito Sans', serif;
     font-weight: bold;
 }
 
 .krav-og-info-text {
     font-size: 17px;
-    font-family: 'Nunito Sans', serif;
 }
-
 
 section {
     background:  linear-gradient(90deg, #c7e0ff 100%, #c7e0ff 20%);

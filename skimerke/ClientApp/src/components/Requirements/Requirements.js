@@ -81,9 +81,9 @@ export default function Requirements() {
                             <h2 className="req_title text-center fs-3">Merkekrav for langrenn (klasser følger kalenderår)</h2>
                         </div>
                         <CardItem>
-                            <div>
+                            
                                 {renderRequirementBadges(male)}
-                            </div>
+                            
                         </CardItem>
                         <CardItem className="">
                             <div>

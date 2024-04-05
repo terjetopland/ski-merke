@@ -11,18 +11,15 @@ code {
   color: #E01A76;
 }
 
+body {
+  font-family: 'Nunito Sans', serif;
+}
+
 .btn-primary {
   color: #fff;
   background-color: #1b6ec2;
   border-color: #1861ac;
 }
-
-/* Global font-family on the project */
-.font-f-lato {
-  font-family: lato, sans-serif;
-}
-
-
 
 .container {
   margin-right: 0;
