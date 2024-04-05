@@ -6,7 +6,7 @@ namespace skimerke.Services;
 
 public class PersonService(ApplicationDbContext context) : IPersonService
 {
-    public async Task<Person> AddPerson(string userId, string firstName, string lastName, PersonGender gender, DateTime dateOfBirth)
+    public async Task<Person> AddPerson(string userId, Person addedPerson)
     {
         var user = await context.Users.FindAsync(userId);
 
@@ -14,10 +14,11 @@ public class PersonService(ApplicationDbContext context) : IPersonService
         {
             var person = new Person
             {
-                FirstName = firstName,
-                LastName = lastName,
-                Gender = gender.ToString(),
-                DateOfBirth = dateOfBirth,
+                FirstName = addedPerson.FirstName,
+                LastName = addedPerson.LastName,
+                Gender = addedPerson.Gender,
+                DateOfBirth = addedPerson.DateOfBirth,
+                ApplicationUserId = userId,
                 ApplicationUser = user
             };
 

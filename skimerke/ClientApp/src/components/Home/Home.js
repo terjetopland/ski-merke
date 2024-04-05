@@ -29,7 +29,6 @@ export class Home extends Component {
                         </div>
                     </div>
                 </div>
-                <AddPersonForm/>
                 <CardStack>
                     <CardContainer>
                         <CardItem>

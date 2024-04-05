@@ -48,6 +48,9 @@ export class NavMenu extends Component {
                 <NavItem>
                   <NavLink tag={Link} className={`nav-link text-dark ${activeNavItem === 'fetch-data' ? 'active' : ''}`} to="/fetch-data" onClick={() => this.handleNavItemSelect('fetch-data')}>Hjelp</NavLink>
                 </NavItem>
+                <NavItem>
+                  <NavLink tag={Link}  to="/person" onClick={() => this.handleNavItemSelect('person')}>Person</NavLink>
+                </NavItem>
                 <LoginMenu />
               </ul>
             </Collapse>

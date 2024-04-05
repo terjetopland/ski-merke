@@ -4,6 +4,6 @@ namespace skimerke.Services;
 
 public interface IPersonService
 {
-    Task<Person> AddPerson(string userId, string firstName, string lastName, PersonGender gender, DateTime dateOfBirth);
+    Task<Person> AddPerson(string userId, Person addedPerson);
     public ICollection<Person> GetPersons();
 }
