@@ -1,5 +1,7 @@
 using System.Security.Claims;
 using Duende.IdentityServer;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using skimerke.Models;
@@ -10,8 +12,9 @@ namespace skimerke.Controllers;
 
 [ApiController]
 [Route("[controller]")]
-public class PersonController(IPersonService personService) : ControllerBase
+public class PersonController(IPersonService personService, UserManager<ApplicationUser> userManager) : ControllerBase
 {
+    
     [HttpPost]
     public async Task<IActionResult> AddPerson(
         Person person)
@@ -21,10 +24,11 @@ public class PersonController(IPersonService personService) : ControllerBase
             return BadRequest("Not valid model");
         }
         
-        // Retrieve the current user's ID
-        var userId = HttpContext.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-
+        // Retrieve the current user
+        var user = await userManager.GetUserAsync(HttpContext.User);
+        if (user == null) return BadRequest("No user found");
         
+        var userId = user?.Id;
         if (userId == null) return BadRequest("No user Id found");
         
         var addPerson = await personService.AddPerson(userId, person);
