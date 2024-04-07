@@ -1,0 +1,46 @@
+.close-outside-modal {
+    background: none;
+    border: none;
+    position: absolute;
+    top: -2.1em;
+    left: 24.7em;
+}
+
+.close-outside-modal-text {
+    font-size: 40px;
+    font-weight: bold;
+    color: #fff;
+}
+
+.modal-background-color {
+    background: -webkit-linear-gradient(
+    -45deg, #fff, #A9D3FF
+    );
+}
+
+.modal-content {
+    height: 800px;
+    border-radius: 30px;
+}
+
+.modal-btn {
+    width: 66%;
+}
+
+@media screen and (max-width: 767px) {
+    .close-outside-modal {
+        background: none;
+        border: none;
+        position: absolute;
+        top: -0.5em;
+        left: 26em;
+    }
+
+    .close-outside-modal-text {
+        font-size: 40px;
+        font-weight: bold;
+        color: #000;
+    }
+}
+
+
