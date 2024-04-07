@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import authService from "../api-authorization/AuthorizeService";
 import { apiAddPersonToAppUser } from "../api/ApiAddPersonToAppUser";
 
 export const AddPersonForm = () => {
@@ -20,8 +21,14 @@ export const AddPersonForm = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            await apiAddPersonToAppUser(formValues);
-            console.log("Person added successfully!");
+            const isAuthenticated = await authService.isAuthenticated();
+            if (isAuthenticated) {
+                const accessToken = await authService.getAccessToken();
+                await apiAddPersonToAppUser(formValues, accessToken);
+                console.log("Person added successfully!");
+            } else {
+                console.error("User is not authenticated.");
+            }
         } catch (error) {
             console.error("Error adding person:", error);
         }

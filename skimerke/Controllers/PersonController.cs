@@ -14,7 +14,7 @@ namespace skimerke.Controllers;
 [Route("[controller]")]
 public class PersonController(IPersonService personService, UserManager<ApplicationUser> userManager) : ControllerBase
 {
-    
+    [Authorize]
     [HttpPost]
     public async Task<IActionResult> AddPerson(
         Person person)
