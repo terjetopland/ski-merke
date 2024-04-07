@@ -25,13 +25,13 @@ public class PersonController(IPersonService personService, UserManager<Applicat
         }
         
         // Retrieve the current user
-        var user = await userManager.GetUserAsync(HttpContext.User);
-        if (user == null) return BadRequest("No user found");
+        // var user = await userManager.GetUserAsync(HttpContext.User);
+        // if (user == null) return BadRequest("No user found");
         
-        var userId = user?.Id;
-        if (userId == null) return BadRequest("No user Id found");
+        // var userId = user?.Id;
+        // if (userId == null) return BadRequest("No user Id found");
         
-        var addPerson = await personService.AddPerson(userId, person);
+        var addPerson = await personService.AddPerson(person);
         if (addPerson == null)
         {
             return BadRequest("failed to add person");

@@ -6,20 +6,20 @@ namespace skimerke.Services;
 
 public class PersonService(ApplicationDbContext context) : IPersonService
 {
-    public async Task<Person> AddPerson(string userId, Person addedPerson)
+    public async Task<Person> AddPerson(Person addedPerson)
     {
-        var user = await context.Users.FindAsync(userId);
+        // var user = await context.Users.FindAsync(userId);
 
-        if (user != null)
-        {
+        // if (user != null)
+        // {
             var person = new Person
             {
                 FirstName = addedPerson.FirstName,
                 LastName = addedPerson.LastName,
                 Gender = addedPerson.Gender,
                 DateOfBirth = addedPerson.DateOfBirth,
-                ApplicationUserId = userId,
-                ApplicationUser = user
+                // ApplicationUserId = userId,
+                // ApplicationUser = user
             };
 
             context.Persons.Add(person);
@@ -27,9 +27,6 @@ public class PersonService(ApplicationDbContext context) : IPersonService
 
             return person;
         }
-
-        return null;
-    }
 
     public ICollection<Person> GetPersons()
     {
