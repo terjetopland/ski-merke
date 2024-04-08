@@ -25,7 +25,7 @@ export const SkimerkeModal = ({headerChildren, bodyChildren, footerChildren}) =>
                         <div>{externalCloseBtn}</div>
                     </ModalHeader>
                     <ModalBody className="d-flex justify-content-center p-5">
-                        {bodyChildren ? {bodyChildren} :
+                        {bodyChildren ? bodyChildren :
                             <Form>
                                 <Row>
                                     <Col>
@@ -59,8 +59,9 @@ export const SkimerkeModal = ({headerChildren, bodyChildren, footerChildren}) =>
                         }
                     </ModalBody>
                     <ModalFooter className="d-flex flex-column pb-5">
-                        <button className="btn btn-primary modal-btn" onClick={toggle}>Fortsett</button>
-                        <button className="btn btn-secondary modal-btn" onClick={toggle}>Avbryt</button>
+                        { footerChildren ? footerChildren : <div><button className="btn btn-primary modal-btn" onClick={toggle}>Fortsett</button>
+                            <button className="btn btn-secondary modal-btn" onClick={toggle}>Avbryt</button></div>}
+                        
                     </ModalFooter>
                 </div>
             </Modal>

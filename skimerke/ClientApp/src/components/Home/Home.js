@@ -9,7 +9,7 @@ import "../../custom.css"
 import "./Home.css"
 import {AnimationLandingPage} from "./AnimationLandingPage/AnimationLandingPage";
 import Footer from "../Footer/Footer";
-import {AddPersonForm} from "../AddPersonForm/AddPersonForm";
+import {SkimerkeModal} from "../SkimerkeModal/SkimerkeModal";
 
 export class Home extends Component {
     static displayName = Home.name;
@@ -29,6 +29,16 @@ export class Home extends Component {
                         </div>
                     </div>
                 </div>
+                <SkimerkeModal 
+                    headerChildren={
+                    <div>fdsahfkjljh</div>
+                }
+                bodyChildren={
+                    <button className="btn btn-warning ">hello</button>
+                }
+                footerChildren={
+                    <button className="btn">fldksaj</button>
+                }/>
                 <CardStack>
                     <CardContainer>
                         <CardItem>
