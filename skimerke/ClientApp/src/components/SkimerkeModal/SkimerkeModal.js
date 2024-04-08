@@ -1,8 +1,9 @@
-import {Modal, ModalBody, ModalFooter, ModalHeader} from "reactstrap";
+import {Modal, ModalBody, ModalFooter, ModalHeader, Form, FormGroup, Input, Label, Row, Col} from "reactstrap";
 import {useState} from "react";
 import "./SkimerkeModal.css"
 
 // https://reactstrap.github.io/?path=/docs/components-modal--modal
+// floating label: https://reactstrap.github.io/?path=/docs/components-forms--floating-labels
 export const SkimerkeModal = ({headerChildren, bodyChildren, footerChildren}) => {
     const [modal, setModal] = useState(false);
 
@@ -19,20 +20,45 @@ export const SkimerkeModal = ({headerChildren, bodyChildren, footerChildren}) =>
             <button className="btn btn-primary" onClick={toggle}>Open modal</button>
             <Modal isOpen={modal} toggle={toggle}>
                 <div className="modal-background-color modal-content">
-                    <ModalHeader>
+                    <ModalHeader className="d-flex flex-column p-5">
                         {headerChildren ? headerChildren : <div>Legg til dine opplysninger</div>}
                         <div>{externalCloseBtn}</div>
                     </ModalHeader>
-
-                    <ModalBody>
+                    <ModalBody className="d-flex justify-content-center p-5">
                         {bodyChildren ? {bodyChildren} :
-                            <form action="">
-                                <label htmlFor="firstName">Test: </label>
-                                <input type="text" name="firstName" id="firstName"/>
-                            </form>
+                            <Form>
+                                <Row>
+                                    <Col>
+                                        <FormGroup floating>
+                                            <Input
+                                                id="firstName"
+                                                name="firstNmae"
+                                                placeholder="First name"
+                                                type="text"
+                                            />
+                                            <Label for="firstName">
+                                                First name
+                                            </Label>
+                                        </FormGroup>
+                                    </Col>
+                                    <Col>
+                                        <FormGroup floating>
+                                            <Input
+                                                id="exampleEmail"
+                                                name="email"
+                                                placeholder="Email"
+                                                type="email"
+                                            />
+                                            <Label for="exampleEmail">
+                                                Email
+                                            </Label>
+                                        </FormGroup>
+                                    </Col>
+                                </Row>
+                            </Form>
                         }
                     </ModalBody>
-                    <ModalFooter className="d-flex flex-column">
+                    <ModalFooter className="d-flex flex-column pb-5">
                         <button className="btn btn-primary modal-btn" onClick={toggle}>Fortsett</button>
                         <button className="btn btn-secondary modal-btn" onClick={toggle}>Avbryt</button>
                     </ModalFooter>

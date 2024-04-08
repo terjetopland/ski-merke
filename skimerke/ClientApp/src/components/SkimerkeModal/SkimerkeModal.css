@@ -1,9 +1,11 @@
+
+
 .close-outside-modal {
     background: none;
     border: none;
     position: absolute;
     top: -2.1em;
-    left: 24.7em;
+    left: 24.4em;
 }
 
 .close-outside-modal-text {
@@ -32,14 +34,25 @@
         background: none;
         border: none;
         position: absolute;
-        top: -0.5em;
-        left: 26em;
+        top: -2.3em;
+        left: 27.8em;
     }
+}
 
-    .close-outside-modal-text {
-        font-size: 40px;
-        font-weight: bold;
-        color: #000;
+@media screen and (max-width: 575px) {
+    .close-outside-modal {
+        display: none;
+    }
+    
+    .modal-content {
+        height: auto;
+        width: 90vw;
+        margin: 0 auto;
+    }
+    
+    .modal-btn {
+        width: 80%;
+        height: 40px;
     }
 }
 
