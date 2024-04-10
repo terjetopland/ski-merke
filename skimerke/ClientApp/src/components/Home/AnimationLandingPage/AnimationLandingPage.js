@@ -11,13 +11,17 @@ export function AnimationLandingPage() {
     useEffect(() => {
         lottie.loadAnimation({
             animationData: require("./AnimationLandingPage.json"),
-            autoplay: true,
+            autoplay: false,
             container: container.current,
             loop: true,
             renderer: "svg",
         })
     }, [])
 
+    // Make sure that the animation is ready before playing it.
+    setTimeout(() => {
+        lottie.play()
+    }, 1000)
     return (
         <div ref={container} id="animation-container" className="animation-landing-page"></div>
     )
