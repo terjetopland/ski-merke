@@ -7,7 +7,7 @@ export const AddPersonForm = () => {
         firstName: "",
         lastName: "",
         gender: "Other",
-        dateOfBirth: new Date().toISOString()
+        dateOfBirth: new Date().toISOString().split('T')[0]
     });
 
     const handleInputChange = (e) => {
