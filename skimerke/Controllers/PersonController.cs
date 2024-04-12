@@ -38,4 +38,18 @@ public class PersonController(IPersonService personService, UserManager<Applicat
         return Ok(addPerson);
 
     }
+
+    [HttpGet]
+    public async Task<IActionResult> GetPersonDateOfBirth()
+    {
+        var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+        if (userId == null)
+            return BadRequest("No user Id found");
+
+        var dateOfBirth = await personService.GetPersonDateOfBirth(userId);
+        if (dateOfBirth == null)
+            return NotFound("Date of birth not found");
+
+        return Ok(dateOfBirth);
+    }
 }
