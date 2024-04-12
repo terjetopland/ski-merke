@@ -4,10 +4,12 @@ import "./SkimerkeModal.css"
 
 // https://reactstrap.github.io/?path=/docs/components-modal--modal
 // floating label: https://reactstrap.github.io/?path=/docs/components-forms--floating-labels
-export const SkimerkeModal = ({headerChildren, bodyChildren, footerChildren}) => {
-    const [modal, setModal] = useState(false);
 
-    const toggle = () => setModal(!modal);
+/*  To use the Modal create a component that has a usestate for handling "open" argument.
+    "toggle" should handle the state like: toggle={() => setOpen(!open)}
+    See the component TestModal for how to use it :-) 
+ */
+export const SkimerkeModal = ({headerChildren, bodyChildren, footerChildren, open = false, toggle}) => {
 
     const externalCloseBtn =
         (
@@ -17,52 +19,28 @@ export const SkimerkeModal = ({headerChildren, bodyChildren, footerChildren}) =>
 
     return (
         <div>
-            <button className="btn btn-primary" onClick={toggle}>Open modal</button>
-            <Modal isOpen={modal} toggle={toggle}>
+            <Modal isOpen={open} toggle={toggle} className="pt-4">
                 <div className="modal-background-color modal-content">
-                    <ModalHeader className="d-flex flex-column p-5">
-                        {headerChildren ? headerChildren : <div>Legg til dine opplysninger</div>}
-                        <div>{externalCloseBtn}</div>
-                    </ModalHeader>
+                    <div>{externalCloseBtn}</div>
+                    
+                    {headerChildren ?
+                        <ModalHeader className="d-flex flex-column p-5">
+                            {headerChildren}
+                        </ModalHeader>
+                        :
+                        null}
+                    
                     <ModalBody className="d-flex justify-content-center p-5">
-                        {bodyChildren ? bodyChildren :
-                            <Form>
-                                <Row>
-                                    <Col>
-                                        <FormGroup floating>
-                                            <Input
-                                                id="firstName"
-                                                name="firstNmae"
-                                                placeholder="First name"
-                                                type="text"
-                                            />
-                                            <Label for="firstName">
-                                                First name
-                                            </Label>
-                                        </FormGroup>
-                                    </Col>
-                                    <Col>
-                                        <FormGroup floating>
-                                            <Input
-                                                id="exampleEmail"
-                                                name="email"
-                                                placeholder="Email"
-                                                type="email"
-                                            />
-                                            <Label for="exampleEmail">
-                                                Email
-                                            </Label>
-                                        </FormGroup>
-                                    </Col>
-                                </Row>
-                            </Form>
-                        }
+                        {bodyChildren}
                     </ModalBody>
-                    <ModalFooter className="d-flex flex-column pb-5">
-                        { footerChildren ? footerChildren : <div><button className="btn btn-primary modal-btn" onClick={toggle}>Fortsett</button>
-                            <button className="btn btn-secondary modal-btn" onClick={toggle}>Avbryt</button></div>}
-                        
-                    </ModalFooter>
+                    
+                    {footerChildren ?
+                        <ModalFooter className="d-flex flex-column pb-5 justify-content-center">
+                            {footerChildren}
+                        </ModalFooter>
+                        :
+                        null}
+                    
                 </div>
             </Modal>
         </div>
