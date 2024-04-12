@@ -39,7 +39,7 @@ public class PersonController(IPersonService personService, UserManager<Applicat
 
     }
 
-    [HttpGet]
+    [HttpGet("dateOfBirth/")]
     public async Task<IActionResult> GetPersonDateOfBirth()
     {
         var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
