@@ -11,6 +11,7 @@ import {AnimationLandingPage} from "./AnimationLandingPage/AnimationLandingPage"
 import Footer from "../Footer/Footer";
 import {TestModal} from "../SkimerkeModal/TestModal";
 import {GetPersonDateOfBirth} from "../GetPersonDateOfBirth/GetPersonDateOfBirth";
+import {AddPersonModal} from "../AddPersonForm/AddPersonModal";
 
 
 export class Home extends Component {
@@ -32,7 +33,7 @@ export class Home extends Component {
                     </div>
                 </div>
                 <GetPersonDateOfBirth/>
-                <TestModal/>
+                <AddPersonModal/>
                 <CardStack>
                     <CardContainer>
                         <CardItem>

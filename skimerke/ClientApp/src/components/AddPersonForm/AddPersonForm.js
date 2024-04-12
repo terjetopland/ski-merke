@@ -112,7 +112,12 @@ export const AddPersonForm = () => {
                     </FormGroup>
                 </Col>
             </Row>
-            <Button className="btn btn-primary" type="submit">Legg til</Button>
+            <Row>
+                <Col>
+                    <Button className="btn btn-primary modal-btn" type="submit">Legg til</Button>
+                </Col>
+            </Row>
+            
         </Form>
     );
 };
