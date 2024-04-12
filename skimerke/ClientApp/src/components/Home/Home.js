@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {Component, useState} from 'react';
 import {CardStack, CardContainer, CardImage, CardItem} from "../Card/Card";
 import silverPlakett from "../../images/silverPlakett.png";
 import landingPage from "../../images/landingPage.png";
@@ -9,7 +9,8 @@ import "../../custom.css"
 import "./Home.css"
 import {AnimationLandingPage} from "./AnimationLandingPage/AnimationLandingPage";
 import Footer from "../Footer/Footer";
-import {SkimerkeModal} from "../SkimerkeModal/SkimerkeModal";
+import {TestModal} from "../SkimerkeModal/TestModal";
+
 
 export class Home extends Component {
     static displayName = Home.name;
@@ -29,16 +30,7 @@ export class Home extends Component {
                         </div>
                     </div>
                 </div>
-                <SkimerkeModal 
-                    headerChildren={
-                    <div>fdsahfkjljh</div>
-                }
-                bodyChildren={
-                    <button className="btn btn-warning ">hello</button>
-                }
-                footerChildren={
-                    <button className="btn">fldksaj</button>
-                }/>
+                <TestModal/>
                 <CardStack>
                     <CardContainer>
                         <CardItem>
