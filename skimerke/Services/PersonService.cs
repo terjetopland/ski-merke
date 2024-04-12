@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using skimerke.Data;
 using skimerke.Models;
 
@@ -35,4 +36,19 @@ public class PersonService(ApplicationDbContext context) : IPersonService
     {
         throw new NotImplementedException();
     }
+
+    public async Task<DateTime?> GetPersonDateOfBirth(string userId)
+    {
+        var user = await context.Users
+            .Include(u => u.Person)
+            .FirstOrDefaultAsync(u => u.Id == userId);
+
+        if (user != null && user.Person != null)
+        {
+            return user.Person.DateOfBirth;
+        }
+
+        return null;
+    }
+
 }

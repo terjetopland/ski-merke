@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import authService from "../api-authorization/AuthorizeService";
-import { apiAddPersonToAppUser } from "../api/ApiAddPersonToAppUser";
+import { apiPerson } from "../api/ApiPerson";
 
 export const AddPersonForm = () => {
     const [formValues, setFormValues] = useState({
@@ -24,7 +24,7 @@ export const AddPersonForm = () => {
             const isAuthenticated = await authService.isAuthenticated();
             if (isAuthenticated) {
                 const accessToken = await authService.getAccessToken();
-                await apiAddPersonToAppUser(formValues, accessToken);
+                await apiPerson(formValues, accessToken);
                 console.log("Person added successfully!");
             } else {
                 console.error("User is not authenticated.");
