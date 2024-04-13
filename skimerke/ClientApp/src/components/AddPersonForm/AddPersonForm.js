@@ -113,7 +113,7 @@ export const AddPersonForm = () => {
                 </Col>
             </Row>
             <Row>
-                <Col>
+                <Col className="d-flex justify-content-center pt-4">
                     <Button className="btn btn-primary modal-btn" type="submit">Legg til</Button>
                 </Col>
             </Row>

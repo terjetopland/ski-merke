@@ -30,7 +30,7 @@ export const SkimerkeModal = ({headerChildren, bodyChildren, footerChildren, ope
                         :
                         null}
                     
-                    <ModalBody className="d-flex justify-content-center p-5">
+                    <ModalBody className="d-flex justify-content-center px-5 pt-5">
                         {bodyChildren}
                     </ModalBody>
                     

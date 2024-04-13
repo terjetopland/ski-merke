@@ -21,8 +21,8 @@ export const AddPersonModal = () => {
                     }
                 footerChildren=
                     {
-                        <div className="d-flex flex-column justify-content-center modal-btn">
-                            <button className="btn btn-secondary" onClick={() => setOpen(!open)}>Avbryt</button>
+                        <div className="d-flex flex-column justify-content-center">
+                            <button className="btn btn-secondary modal-btn" onClick={() => setOpen(!open)}>Avbryt</button>
                         </div>
                     }
             />
