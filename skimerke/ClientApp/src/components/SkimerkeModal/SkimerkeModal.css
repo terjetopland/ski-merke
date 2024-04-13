@@ -26,7 +26,8 @@
 }
 
 .modal-btn {
-    width: 66%;
+    width: 20rem;
+    height: 40px;
 }
 
 @media screen and (max-width: 767px) {
@@ -51,8 +52,8 @@
     }
     
     .modal-btn {
-        width: 80%;
-        height: 40px;
+        width: 17rem;
+        height: 50px;
     }
 }
 
