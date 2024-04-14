@@ -14,8 +14,44 @@ import {GetPersonDateOfBirth} from "../GetPersonDateOfBirth/GetPersonDateOfBirth
 import {AddPersonModal} from "../AddPersonForm/AddPersonModal";
 
 
+const Klubber = () => {
+    const [loadMore, setLoadMore] = useState(0)
+    const handleLoadMore = () => {
+        setLoadMore(loadMore+1)
+        return loadMore;
+    }
+
+    return (
+        <CardContainer>
+            <CardItem>
+                <div>
+                    <h2>Gjør som mange andre klubber og registrer din klubb</h2>
+                    <h3>Følgende klubber bruker systemet idag:</h3>
+                    <div className="mt-5">
+                        <ul>
+                            <li><a href="https://www.herefossil.no/next/p/69740/hjem">Herefoss Idrettslag </a></li>
+                            <li>Grimstad Idrettsklubb</li>
+                            <li>Lillesand skiklubb</li>
+                            {loadMore === 1 ?
+                                <span><li>Kristiansand IL</li>
+                                <li>Lyngdal IL</li> </span>
+
+                                :
+                                null}
+                        </ul>
+                    </div>
+                    <div className="text-center">
+                        <button className="btn btn-primary" onClick={handleLoadMore}>Se flere</button>
+                    </div>
+                </div>
+            </CardItem>
+        </CardContainer>
+    )
+}
+
 export class Home extends Component {
     static displayName = Home.name;
+
 
     render() {
         return (
@@ -24,17 +60,18 @@ export class Home extends Component {
                     <div className="top">
                         <img src={landingPage} alt="Cross country skiing - mountains"/>
                         <div className="centered">
-                            <div className="display-3 fw-normal small-size-header-1" >Skimerke</div>
+                            <div className="display-3 fw-normal small-size-header-1">Skimerke</div>
                             <div className="fs-5 fw-light small-size-header-2">
                                 Din portal for effektive og enkle skitester
                             </div>
-                           <AnimationLandingPage/>
+                            <AnimationLandingPage/>
                         </div>
                     </div>
                 </div>
                 <GetPersonDateOfBirth/>
                 <AddPersonModal/>
                 <CardStack>
+                    <Klubber/>
                     <CardContainer>
                         <CardItem>
                             <div className="text-container">
@@ -71,7 +108,7 @@ export class Home extends Component {
                                     </a>
                                 </div>
                             </div>
-                            
+
                         </CardItem>
                         <CardItem>
                             <CardImage src={silverPlakett} alt="Sølvplakett"/>
@@ -126,7 +163,7 @@ export class Home extends Component {
 
                     </CardContainer>
                 </CardStack>
-                <Footer />
+                <Footer/>
             </div>
         )
             ;
