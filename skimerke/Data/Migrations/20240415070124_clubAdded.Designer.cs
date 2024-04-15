@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using skimerke.Data;
 
@@ -10,9 +11,11 @@ using skimerke.Data;
 namespace skimerke.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240415070124_clubAdded")]
+    partial class clubAdded
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "8.0.3");
@@ -298,9 +301,6 @@ namespace skimerke.Data.Migrations
                     b.Property<int>("AccessFailedCount")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int?>("ClubId")
-                        .HasColumnType("INTEGER");
-
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
                         .HasColumnType("TEXT");
@@ -347,8 +347,6 @@ namespace skimerke.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ClubId");
-
                     b.HasIndex("NormalizedEmail")
                         .HasDatabaseName("EmailIndex");
 
@@ -367,27 +365,22 @@ namespace skimerke.Data.Migrations
 
                     b.Property<string>("Address")
                         .IsRequired()
-                        .HasMaxLength(100)
                         .HasColumnType("TEXT");
 
                     b.Property<string>("City")
                         .IsRequired()
-                        .HasMaxLength(100)
                         .HasColumnType("TEXT");
 
                     b.Property<string>("ClubName")
                         .IsRequired()
-                        .HasMaxLength(150)
                         .HasColumnType("TEXT");
 
                     b.Property<string>("EMail")
                         .IsRequired()
-                        .HasMaxLength(100)
                         .HasColumnType("TEXT");
 
                     b.Property<string>("OrganizationNumberId")
                         .IsRequired()
-                        .HasMaxLength(14)
                         .HasColumnType("TEXT");
 
                     b.Property<int>("PostalCode")
@@ -511,15 +504,6 @@ namespace skimerke.Data.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("skimerke.Models.ApplicationUser", b =>
-                {
-                    b.HasOne("skimerke.Models.Club", "Club")
-                        .WithMany("ApplicationUsers")
-                        .HasForeignKey("ClubId");
-
-                    b.Navigation("Club");
-                });
-
             modelBuilder.Entity("skimerke.Models.Person", b =>
                 {
                     b.HasOne("skimerke.Models.ApplicationUser", "ApplicationUser")
@@ -532,11 +516,6 @@ namespace skimerke.Data.Migrations
             modelBuilder.Entity("skimerke.Models.ApplicationUser", b =>
                 {
                     b.Navigation("Person");
-                });
-
-            modelBuilder.Entity("skimerke.Models.Club", b =>
-                {
-                    b.Navigation("ApplicationUsers");
                 });
 #pragma warning restore 612, 618
         }
