@@ -18,6 +18,9 @@ namespace skimerke.Data
 
             // Ensure that the database is created
             context.Database.EnsureCreated();
+
+            
+           
             
             var club = new Club
             {
@@ -59,10 +62,31 @@ namespace skimerke.Data
                 // Add the person to the context and save changes
                 context.Persons.Add(person);
                 context.SaveChanges();
-                
-                
-                
             }
+            
+            var clubs = new List<Club>
+            {
+                new()
+                {
+                    ClubName = "TestKlubb 2",
+                    Address = "Testveien 2345",
+                    PostalCode = 2345,
+                    City = "TestbyenTo",
+                    OrganizationNumberId = "234 234 234",
+                    EMail = "testKlubb1@testKlubb2.no", 
+                },
+                new()
+                {
+                    ClubName = "TestKlubb 3",
+                    Address = "Testveien 3456",
+                    PostalCode = 3456,
+                    City = "TestbyenTre",
+                    OrganizationNumberId = "345 345 345",
+                    EMail = "testKlubb1@testKlubb3.no", 
+                },
+            };
+            context.Clubs.AddRange(clubs);
+            context.SaveChanges();
 
 
             if (context.Requirements.Any())

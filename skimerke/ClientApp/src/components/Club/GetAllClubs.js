@@ -20,7 +20,7 @@ export const GetAllClubs = () => {
                         <p>Address: {club.address}</p>
                         <p>Postal Code: {club.postalCode}</p>
                         <p>City: {club.city}</p>
-                        <p>Email: {club.email}</p>
+                        <p>Email: {club.eMail}</p>
                     </li>
                 ))}
             </ul>
