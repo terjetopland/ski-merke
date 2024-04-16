@@ -9,13 +9,14 @@ import "../../custom.css"
 import "./Home.css"
 import {AnimationLandingPage} from "./AnimationLandingPage/AnimationLandingPage";
 import Footer from "../Footer/Footer";
-import {TestModal} from "../SkimerkeModal/TestModal";
 import {GetPersonDateOfBirth} from "../GetPersonDateOfBirth/GetPersonDateOfBirth";
 import {AddPersonModal} from "../AddPersonForm/AddPersonModal";
+import {GetAllClubs} from "../Club/GetAllClubs";
 
 
 export class Home extends Component {
     static displayName = Home.name;
+    
 
     render() {
         return (
@@ -32,6 +33,7 @@ export class Home extends Component {
                         </div>
                     </div>
                 </div>
+                <GetAllClubs/>
                 <GetPersonDateOfBirth/>
                 <AddPersonModal/>
                 <CardStack>

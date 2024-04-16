@@ -4,7 +4,9 @@ using skimerke.Services;
 
 namespace skimerke.Controllers;
 
-public class ClubController(ClubService clubService)
+[ApiController]
+[Route("[controller]")]
+public class ClubController(IClubService clubService) : ControllerBase
 {
     [HttpGet]
     public async Task<IEnumerable<Club>> GetAllClubs()
