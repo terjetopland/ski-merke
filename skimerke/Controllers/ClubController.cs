@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 using skimerke.Models;
 using skimerke.Services;
@@ -9,9 +10,18 @@ namespace skimerke.Controllers;
 public class ClubController(IClubService clubService) : ControllerBase
 {
     [HttpGet]
-    public async Task<IEnumerable<Club>> GetAllClubs()
+    public async Task<ActionResult<List<Club>>> GetAllClubs()
     {
         var clubs = await clubService.GetAllClubs();
-        return clubs;
+        return Ok(clubs);
+    }
+
+    [HttpGet("{id:int}")]
+    public async Task<ActionResult<Club>> GetClubById(int id)
+    {
+        var club = await clubService.GetClubById(id);
+        if (club == null) return BadRequest("No club with the id was found");
+        
+        return Ok(club);
     }
 }

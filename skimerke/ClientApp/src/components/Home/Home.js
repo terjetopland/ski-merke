@@ -12,6 +12,7 @@ import Footer from "../Footer/Footer";
 import {GetPersonDateOfBirth} from "../GetPersonDateOfBirth/GetPersonDateOfBirth";
 import {AddPersonModal} from "../AddPersonForm/AddPersonModal";
 import {GetAllClubs} from "../Club/GetAllClubs";
+import {GetClubById} from "../Club/GetClubById";
 
 
 export class Home extends Component {
@@ -33,6 +34,7 @@ export class Home extends Component {
                         </div>
                     </div>
                 </div>
+                <GetClubById/>
                 <GetAllClubs/>
                 <GetPersonDateOfBirth/>
                 <AddPersonModal/>
