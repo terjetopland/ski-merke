@@ -13,6 +13,7 @@ import {GetPersonDateOfBirth} from "../GetPersonDateOfBirth/GetPersonDateOfBirth
 import {AddPersonModal} from "../AddPersonForm/AddPersonModal";
 import {GetAllClubs} from "../Club/GetAllClubs";
 import {GetClubById} from "../Club/GetClubById";
+import {SearchClubByName} from "../Club/SearchClubByName";
 
 
 export class Home extends Component {
@@ -34,7 +35,7 @@ export class Home extends Component {
                         </div>
                     </div>
                 </div>
-                <GetClubById/>
+                <SearchClubByName/>
                 <GetAllClubs/>
                 <GetPersonDateOfBirth/>
                 <AddPersonModal/>
