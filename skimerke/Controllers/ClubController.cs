@@ -9,6 +9,12 @@ namespace skimerke.Controllers;
 [Route("[controller]")]
 public class ClubController(IClubService clubService) : ControllerBase
 {
+
+    [HttpPost]
+    public async Task<IActionResult> AddClub()
+    {
+        return null;
+    }
     [HttpGet]
     public async Task<ActionResult<List<Club>>> GetAllClubs()
     {
