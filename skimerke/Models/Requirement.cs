@@ -5,8 +5,6 @@ namespace skimerke.Models
 {
     public class Requirement
     {
-        public Requirement() {}
-        
         public int Id { get; set; }
         public int Minutes { get; set; }
         [StringLength(15)]

@@ -10,7 +10,8 @@ using skimerke.Services;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ??
+                       throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlite(connectionString));
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
@@ -24,7 +25,11 @@ builder.Services.AddIdentityServer()
 builder.Services.AddAuthentication()
     .AddIdentityServerJwt();
 
-builder.Services.AddControllersWithViews().AddJsonOptions(options => options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.Preserve);
+builder.Services.AddControllersWithViews().AddJsonOptions(options =>
+{
+    options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
+    options.JsonSerializerOptions.WriteIndented = true;
+});
 builder.Services.AddRazorPages();
 
 // Service configuration
@@ -34,13 +39,12 @@ builder.Services.AddScoped<IPersonService, PersonService>();
 var app = builder.Build();
 
 // call the database initializer
-using (var services = app.Services.CreateScope())
-{   
-    
-    var db = services.ServiceProvider.GetRequiredService<ApplicationDbContext>();
-    var um = services.ServiceProvider.GetRequiredService<UserManager<ApplicationUser>>();
-    ApplicationDbInitializer.Initialize(db, um);
-}
+// using (var services = app.Services.CreateScope())
+// {
+//     var db = services.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+//     var um = services.ServiceProvider.GetRequiredService<UserManager<ApplicationUser>>();
+//     ApplicationDbInitializer.Initialize(db, um);
+// }
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
