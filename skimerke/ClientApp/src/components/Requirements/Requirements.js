@@ -27,12 +27,9 @@ export default function Requirements() {
     async function fetchRequirements() {
         try {
             const response = await fetch('/requirement'); // Adjust the endpoint if needed
-            const data = await response.json();
-
-            // Assuming data is in the first format with "$values" array
-            const valuesArray = data["$values"]; // Access the array under "$values"
-
-            setRequirements(valuesArray); // Update state with fetched array of objects
+            const requirements = await response.json();
+            
+            setRequirements(requirements); // Update state with fetched array of objects
         } catch (error) {
             console.error('Error fetching data:', error);
         }
