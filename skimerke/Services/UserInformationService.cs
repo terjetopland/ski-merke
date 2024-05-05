@@ -28,7 +28,7 @@ public class UserInformationService(ApplicationDbContext context) : IUserInforma
 
     public async Task UpdateUserDetails(string userId, UserDetailsDto updatedUserDetails)
     {
-        var updatedUser = updatedUserDetails.ToApplicationUser();
+        var updatedUser = updatedUserDetails.ToApplicationUser(userId);
         if (updatedUser.Person is null) // Nothing to update
         {
             return;
@@ -72,7 +72,7 @@ public static class ApplicationUserExtension
         );
      }
      
-     public static ApplicationUser ToApplicationUser(this UserDetailsDto dto)
+     public static ApplicationUser ToApplicationUser(this UserDetailsDto dto, string applicationUserId)
      {
          return new ApplicationUser
          {
@@ -80,6 +80,7 @@ public static class ApplicationUserExtension
              Email = dto.Email,
              Person = new Person
              {
+                 ApplicationUserId = applicationUserId,
                  FirstName = dto.FirstName,
                  LastName = dto.LastName,
                  DateOfBirth = dto.DateOfBirth,

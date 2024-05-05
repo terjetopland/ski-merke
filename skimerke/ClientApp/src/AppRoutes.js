@@ -3,6 +3,7 @@ import Requirements  from "./components/Requirements/Requirements";
 import { FetchData } from "./components/FetchData";
 import { Home } from "./components/Home/Home";
 import {AddPersonForm} from "./components/AddPersonForm/AddPersonForm";
+import {UserInformation} from "./components/UserInformation/UserInformation";
 
 const AppRoutes = [
   {
@@ -20,7 +21,7 @@ const AppRoutes = [
   },
   {
     path: '/person',
-    element: ( <div> <AddPersonForm/></div>)
+    element: ( <div> <UserInformation/></div>)
   },
   ...ApiAuthorzationRoutes
 ];
