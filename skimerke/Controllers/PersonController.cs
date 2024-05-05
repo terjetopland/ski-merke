@@ -1,12 +1,9 @@
 using System.Security.Claims;
-using Duende.IdentityServer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
 using skimerke.Models;
 using skimerke.Services;
-
 
 namespace skimerke.Controllers;
 

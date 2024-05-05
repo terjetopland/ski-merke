@@ -36,8 +36,8 @@ namespace skimerke.Data
                     {
                         FirstName = "Test",
                         LastName = "Testesen",
-                        DateOfBirth = new DateTime(1990, 1, 1),
-                        Gender = PersonGender.Male.ToString(), 
+                        DateOfBirth = new DateOnly(1990, 1, 1),
+                        Gender = PersonGender.Male, 
                         ApplicationUserId = user.Id 
                     };
 

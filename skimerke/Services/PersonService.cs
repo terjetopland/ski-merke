@@ -37,18 +37,13 @@ public class PersonService(ApplicationDbContext context) : IPersonService
         throw new NotImplementedException();
     }
 
-    public async Task<DateTime?> GetPersonDateOfBirth(string userId)
+    public async Task<DateOnly?> GetPersonDateOfBirth(string userId)
     {
         var user = await context.Users
             .Include(u => u.Person)
             .FirstOrDefaultAsync(u => u.Id == userId);
 
-        if (user != null && user.Person != null)
-        {
-            return user.Person.DateOfBirth;
-        }
-
-        return null;
+        return user?.Person?.DateOfBirth;
     }
 
 }

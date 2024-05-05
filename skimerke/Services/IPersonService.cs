@@ -7,5 +7,5 @@ public interface IPersonService
     Task<Person> AddPerson(string userId, Person addedPerson);
     public ICollection<Person> GetPersons();
 
-    Task<DateTime?> GetPersonDateOfBirth(string userId);
+    Task<DateOnly?> GetPersonDateOfBirth(string userId);
 }

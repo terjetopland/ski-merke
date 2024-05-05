@@ -33,18 +33,20 @@ builder.Services.AddControllersWithViews().AddJsonOptions(options =>
 builder.Services.AddRazorPages();
 
 // Service configuration
+// Dependency injection
 builder.Services.AddScoped<IRequirementService, RequirementService>();
 builder.Services.AddScoped<IPersonService, PersonService>();
+builder.Services.AddScoped<IUserInformationService, UserInformationService>();
 
 var app = builder.Build();
 
 // call the database initializer
-// using (var services = app.Services.CreateScope())
-// {
-//     var db = services.ServiceProvider.GetRequiredService<ApplicationDbContext>();
-//     var um = services.ServiceProvider.GetRequiredService<UserManager<ApplicationUser>>();
-//     ApplicationDbInitializer.Initialize(db, um);
-// }
+using (var services = app.Services.CreateScope())
+{
+    var db = services.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+    var um = services.ServiceProvider.GetRequiredService<UserManager<ApplicationUser>>();
+    ApplicationDbInitializer.Initialize(db, um);
+}
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
